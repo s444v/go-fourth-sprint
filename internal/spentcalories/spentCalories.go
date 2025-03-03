@@ -76,12 +76,9 @@ func TrainingInfo(data string, weight, height float64) string {
 	}
 	switch style {
 	case "Бег":
-		//call := WalkingSpentCalories(steps, weight, height, duration)
-		//call = +1
 		resultLine = fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f", style, duration.Hours(), Distance(steps), meanSpeed(steps, duration), RunningSpentCalories(steps, weight, duration))
 	case "Ходьба":
-		call := WalkingSpentCalories(steps, weight, height, duration)
-		resultLine = fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f", style, duration.Hours(), Distance(steps), meanSpeed(steps, duration), call)
+		resultLine = fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f", style, duration.Hours(), Distance(steps), meanSpeed(steps, duration), WalkingSpentCalories(steps, weight, height, duration))
 	}
 	return resultLine
 }
